@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Resume</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-size: 1.2em;
+}
+
+section {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea, button {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1em;
+}
+
+button {
+  background: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #555;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #333;
+  color: #fff;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+section {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Hover Effects */
+ul li:hover {
+  color: #555;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+  <header>
+    <h1>John Doe</h1>
+    <p>Web Developer</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a passionate web developer with experience in HTML, CSS, and JavaScript. I love creating interactive and user-friendly websites.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node.js</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="job">
+      <h3>Web Developer - ABC Company</h3>
+      <p>Jan 2021 - Present</p>
+      <ul>
+        <li>Developed and maintained company website.</li>
+        <li>Implemented responsive design for mobile devices.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p id="form-message"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 John Doe</p>
+  </footer>
+
+  <script>
+// Form submission interaction
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+  e.preventDefault(); // Prevent form submission
+
+  // Get form values
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  // Display a message
+  const formMessage = document.getElementById('form-message');
+  formMessage.textContent = `Thank you, ${name}! Your message has been sent.`;
+  formMessage.style.color = 'green';
+
+  // Clear the form
+  document.getElementById('contact-form').reset();
+});
+
+// Add hover effect to skills list
+const skillsList = document.querySelectorAll('#skills ul li');
+skillsList.forEach(skill => {
+  skill.addEventListener('mouseover', () => {
+    skill.style.transform = 'scale(1.1)';
+    skill.style.transition = 'transform 0.3s';
+  });
+
+  skill.addEventListener('mouseout', () => {
+    skill.style.transform = 'scale(1)';
+  });
+});
+</script>
+</body>
+</html>
